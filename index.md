@@ -7,6 +7,8 @@ title: Student Blog
 ## Build you Home Page here 
 This is about your journey. Start now!!!
 
+<img src="{{site.baseurl}}/images/temporary-rubber-stamp-vector-17998177.jpg">
+
 My name is Yash Parikh! I am a 14 year old male at Del Norte High School, in San Diego, California.
 
 ## Overview of Hacks, Study and Tangibles
