@@ -4,12 +4,18 @@ title: Student Blog
 ---
 
 
-## Build you Home Page here 
-This is about your journey. Start now!!!
+## About me!
 
+My name is Yash Parikh! I am a 14 year old male at Del Norte High School, in San Diego, California. 
 <img src="{{site.baseurl}}/images/temporary-rubber-stamp-vector-17998177.jpg">
 
-## My name is Yash Parikh! I am a 14 year old male at Del Norte High School, in San Diego, California.
+I love playing and following both soccer and cricket! My favorite soccer team is Barcelona, and my favorite cricket team is team India. In specifics to Indian cricket, my favorite team is the Gujarat Titans.
+<img src="{{site.baseurl}}/images/sports teams.jpg">
+
+Outside of sports, I have played both the piano and the cello for almost 5 years each. 
+<img src="{{site.baseurl}}/images/piano&cello.jpg">
+
+On a more fun side, I really enjoy listening to music and also playing video games! My favorite video game is Fortnite.
 
 ## Overview of Hacks, Study and Tangibles
 Blogging in GitHub pages is a way to learn and code at the same time. 
