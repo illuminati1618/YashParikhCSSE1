@@ -20,6 +20,8 @@ Outside of sports, I have played both the piano and the cello for almost 5 years
 
 On a more fun side, I really enjoy listening to music and also playing video games! My favorite video game is Fortnite, which I play on my Xbox.
 
+<img src="{{site.baseurl}}/images/sports teams.jpg" height="300 px">
+
 ## Overview of Hacks, Study and Tangibles
 Blogging in GitHub pages is a way to learn and code at the same time. 
 
