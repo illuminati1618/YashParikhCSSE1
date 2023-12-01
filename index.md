@@ -1,14 +1,14 @@
 ---
 layout: default
-title: Student Blog
+title: Yash Parikh's Blog
 ---
 
 
-## About me!
+## About Yash Parikh!
 
 My name is Yash Parikh! I am a 14 year old male at Del Norte High School, in San Diego, California. 
 
-<img src="{{site.baseurl}}/images/temporary-rubber-stamp-vector-17998177.jpg" height="300px">
+<img src="{{site.baseurl}}/images/IMG_7313.jpg" height="200px">
 <footer class="site-footer">
 </footer>
 I love playing and following both soccer and cricket! My favorite soccer team is Barcelona, and my favorite cricket team is team India. In specifics to Indian cricket, my favorite team is the Gujarat Titans.
