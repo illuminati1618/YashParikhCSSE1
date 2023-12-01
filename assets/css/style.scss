@@ -24,6 +24,12 @@
     transition: all 0.5s; 
   }
 
+  .page-header {
+    color: #fff;
+    text-align: center;
+    background-image: linear-gradient(120deg, rgb(96, 207, 255), #9b34eb);
+  }
+  
   /* define class for redifined button */
   .button {
     @include button;
