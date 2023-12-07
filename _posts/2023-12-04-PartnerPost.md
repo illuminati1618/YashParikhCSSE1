@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CTF Walkthrough with Yash!
+title: CTF Walkthrough
 type: hacks
 courses: { compsci: {week: 2} }
 ---
@@ -9,7 +9,7 @@ courses: { compsci: {week: 2} }
 Description:
 </h2>
 <h3>
-A walkthrough of how to solve the Capture-The-Flag challenge Yash and I made
+A walkthrough of how to solve the capture-the-flag challenge made by Anvay and Yash
 </h3>
 
 <style>
