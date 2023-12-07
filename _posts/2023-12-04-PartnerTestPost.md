@@ -1,10 +1,7 @@
 ---
 layout: post
-title: Test Post By Partner
-description: Partner post test
-type: plans
+title: CTF Walkthrough with Yash!
+description: A walkthrough of how Yash and I made our Capture-The-Flag challenge
+type: hacks
 courses: { compsci: {week: 2} }
 ---
-
-# This is a test by Anvay
-yay

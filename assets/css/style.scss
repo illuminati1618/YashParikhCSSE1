@@ -27,7 +27,31 @@
   .page-header {
     color: #fff;
     text-align: center;
-    background-image: linear-gradient(120deg, rgb(96, 207, 255), #9b34eb);
+    background-image: linear-gradient(120deg, #54acff, #c054ff);
+  }
+  
+  h1 { 
+    background: linear-gradient( 
+      to right, #a17100, #fff); 
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text; 
+  } 
+  h2 {
+    background: linear-gradient( 
+        to right, #ff3700, #f5d273); 
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text; 
+  }
+
+  h3 {
+    background: linear-gradient( 
+        to right, #1e6bb8, #b2d8ff); 
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text; 
+  } 
+
+  h4 {
+    color: white !important;
   }
   
   /* define class for redifined button */

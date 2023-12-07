@@ -3,9 +3,9 @@ layout: default
 title: Yash Parikh's Blog
 ---
 
-<h1 style="color: red;">
+<h2>
 About Yash Parikh!
-</h1>
+</h2>
 
 <h4 style="color: white;">
 My name is Yash Parikh! I am a 14 year old male at Del Norte High School, in San Diego, California. 
