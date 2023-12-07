@@ -58,8 +58,9 @@ A walkthrough of how to solve the capture-the-flag challenge made by Anvay and Y
 
 <h1 class="additional-text">Step 1: Extract hashes from the SAM Database</h1>
 
+
 <p class="additional-text">
-   The SAM database is the file that the Windows operating system uses to store usernames and match them to passwords
+    The SAM database is the file that the Windows operating system uses to store usernames and match them to passwords
 </p>
 
 <h2 class="additional-text">Extraction Way #1:</h2>
@@ -68,11 +69,11 @@ A walkthrough of how to solve the capture-the-flag challenge made by Anvay and Y
     The first way you can extract the passwords from the SAM database is through the registry editor.
     <span class="additional-text-green">Make sure to be safe when navigating the Registry Editor. A single thing messed up in here means that your computer could risk its last use.</span>
 </p>
-
+<img class="additional-text" src="{{site.baseurl}}/images/week2/regeditlookup.png">
 <p class="additional-text">
     After you have done this, navigate to HKEY_LOCAL_MACHINE and then SAM. Then, right-click and Export the key.
 </p>
-
+<img class="additional-text" src="{{site.baseurl}}/images/week2/regbackup.png">
 <h2 class="additional-text">Extraction Way #2:</h2>
 
 <p class="additional-text">
@@ -115,7 +116,7 @@ impacket-secretsdump -sam sam.save -system system.save LOCAL
     <li><span class="additional-text-code">-system system.save:</span> This flag specifies the path to the system registry hive file (system.save in this case).</li>
     <li><span class="additional-text-code">LOCAL:</span> This argument specifies the target; in this case, it indicates that the command should be executed locally on the system.</li>
 </ul>
-
+<img class="additional-text" src="{{site.baseurl}}/images/week2/importSAM_linux.png">
 <p class="additional-text">
     So, when you run this command, it reads the SAM and system registry hive files from the specified paths (sam.save and system.save),
     extracts password hashes, and outputs the results.
@@ -145,10 +146,10 @@ hashcat -m 1000 hash.txt /rockyou.txt --show
     <li><span class="additional-text-code">/rockyou.txt:</span> This is the path to a wordlist file, in this case, rockyou.txt.</li>
     <li><span class="additional-text-code">--show:</span> This option instructs hashcat to display the cracked passwords if it successfully finds matches in the provided wordlist.</li>
 </ul>
-
+<img class="additional-text" src="{{site.baseurl}}/images/week2/crackedpwd.png">
 <p class="additional-text">
     So, the overall purpose of this command is to use hashcat to attempt to crack password hashes (in NTLM format) stored in the hash.txt file using the passwords from the rockyou.txt wordlist.
     If successful, the tool will display the cracked passwords.
 </p>
 
-<p class="additional-text">Congratulations! Using hashcat, you just cracked the password of <code class="additional-text">insecureaccount</code>. Seems like he kept his password as “password”. What a naughty cheeky little boy. Now you know how to crack easy passwords using Kali and Hashcat.</p>
+<p class="additional-text">Congratulations! Using hashcat, you just cracked the password of <code class="additional-text">insecureaccount</code>. Seems like they kept their password as “password”.</p>
