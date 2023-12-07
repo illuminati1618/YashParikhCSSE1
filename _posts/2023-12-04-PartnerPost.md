@@ -59,7 +59,7 @@ A walkthrough of how to solve the capture-the-flag challenge made by Anvay and Y
 <h1 class="additional-text">Step 1: Extract hashes from the SAM Database</h1>
 
 <p class="additional-text">
-    If you don’t know what the SAM database is, make sure to check out the explanation, linked <a href="{{site.baseurl}}/_posts/2023-12-05-NewHack.md">here</a>.
+   The SAM database is the file that the Windows operating system uses to store usernames and match them to passwords
 </p>
 
 <h2 class="additional-text">Extraction Way #1:</h2>
