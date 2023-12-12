@@ -8,10 +8,15 @@ About Yash Parikh!
 </h2>
 
 <h4 style="color: white;">
-My name is Yash Parikh! I am a 14 year old male at Del Norte High School, in San Diego, California. 
-</h4>
+<!--
+My name is Yash Parikh! 
 
+I am a 14 year old male at Del Norte High School, in San Diego, California. 
+-->
+</h4>
+<!--
 <img src="{{site.baseurl}}/images/aboutme/IMG_7313.jpg" height="200px">
+-->
 <footer class="site-footer">
 </footer>
 
