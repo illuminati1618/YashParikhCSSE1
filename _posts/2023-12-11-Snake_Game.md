@@ -64,45 +64,77 @@ courses: { compsci: {week: 3} }
 
     #setting label{
         cursor: pointer;
+        display: inline-block; /* Add this to fix the issue */
+        padding: 3px; /* Add padding for better readability */
+        margin: 2px; /* Add margin for better spacing */
     }
 
     #setting input:checked + label{
-        background-color: #FFF;
+        background-color: #fd5819;
         color: #000;
     }
+    /*
     p {
     background: linear-gradient( 
       to right, #ffffff, #ffffff); 
     -webkit-text-fill-color: transparent; 
     -webkit-background-clip: text; 
     }
-
-    .highlight-text {
-        background-color: rgba(27, 15, 64, 0.4); /* Adjust the color and opacity */
-        color: #fff; /* Text color */
-        padding: 1px 4px;
-        border-radius: 3px;
-        /* text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);  Text shadow for visibility */
+    */
+    #setting p {
+        background: none;
+        color: #fff
     }
 
+    #setting select {
+        background: linear-gradient(to right, #fd5819, #e89b4f);
+        color: #000000; /* Set text color to be visible on the background */
+        border: 1px solid #ffffff; /* Optional: Add border for better visibility */
+    }
+
+
+
+    #score_value {
+        font-size: 24px; /* Adjust the font size as needed */
+        color: black; /* Set text color to black */
+        background: linear-gradient(to bottom, #a17101, #dee880);; /* Set background color to orange */
+        padding: 5px 10px; /* Add padding for better appearance */
+        border-radius: 8px; /* Add border-radius for rounded corners */
+        display: inline-block; /* Make it an inline-block to center with text-align */
+    }
+
+    .fs-4 {
+        text-align: center; /* Center the text */
+        color: black; /* Set text color to black */
+    }
+    
+
+/*
+    .highlight-text {
+        background-color: rgba(27, 15, 64, 0.4); /* Adjust the color and opacity
+        color: #fff;  Text color 
+        padding: 1px 4px;
+        border-radius: 3px;
+         text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);  Text shadow for visibility 
+    } */
 
 </style>
 
 
 <div class="container">
     <header class="pb-3 mb-4 border-bottom border-primary text-dark">
-        <p class="fs-4">Snake score: <span id="score_value">0</span></p>
+        <p class="fs-4"><span style="color: lightblue; font-size: 24px;">Snake score:</span> <span id="score_value">0</span></p>
     </header>
     <div class="container bg-secondary" style="text-align:center;">
         <!-- Main Menu -->
         <div id="menu" class="py-4 text-light">
-            <p>Welcome to Snake, press <span id="space-highlight" class="highlight-text">space</span> to begin</p>
+            <p>Welcome to Snake, press SPACE to begin</p>
             <a id="new_game" class="link-alert">new game</a>
             <a id="setting_menu" class="link-alert">settings</a>
         </div>
         <!-- Game Over -->
         <div id="gameover" class="py-4 text-light">
-            <p>Game Over, press <span id="space-highlight" class="highlight-text">space</span> to try again</p>
+            <p>Game Over, press SPACE to try again</p>
             <a id="new_game1" class="link-alert">new game</a>
             <a id="setting_menu1" class="link-alert">settings</a>
         </div>
@@ -110,10 +142,10 @@ courses: { compsci: {week: 3} }
         <canvas id="snake" class="wrap" width="220" height="220" tabindex="1"></canvas>
         <!-- Settings Screen -->
         <div id="setting" class="py-4 text-light">
-            <p>Settings Screen, press <span id="space-highlight" class="highlight-text">space</span> to go back to playing</p>
+            <p>Settings Screen, press SPACE to go back to playing</p>
             <a id="new_game2" class="link-alert">new game</a>
             <br>
-            <p>Speed:
+            <p><span style="color: #3da5f5;">Speed:</span>
                 <input id="speed1" type="radio" name="speed" value="150"/>
                 <label for="speed1">Slow</label>
                 <input id="speed2" type="radio" name="speed" value="75" checked/>
@@ -121,13 +153,27 @@ courses: { compsci: {week: 3} }
                 <input id="speed3" type="radio" name="speed" value="35"/>
                 <label for="speed3">Fast</label>
             </p>
-            <p>Wall:
+            <p><span style="color:#3da5f5;">Wall:</span>
                 <input id="wallon" type="radio" name="wall" value="1" checked/>
                 <label for="wallon">On</label>
                 <input id="walloff" type="radio" name="wall" value="0"/>
                 <label for="walloff">Off</label>
             </p>
-            <label for="snakecolor">Choose a color for your snake:</label>
+            <p><span style="color:#3da5f5;">Snake Style:</span>
+                <input id="style_fill" type="radio" name="style" value="fill" checked/>
+                <label for="style_fill">Block</label>
+                <input id="style_stroke" type="radio" name="style" value="stroke"/>
+                <label for="style_stroke">Skeleton</label>
+            </p>
+            <p><span style="color: #3da5f5;">Snake Shape:</span>
+                <input id="dotStyle1" type="radio" name="dotStyle" value="square" checked/>
+                <label for="dotStyle1">Sharp</label>
+                <input id="dotStyle2" type="radio" name="dotStyle" value="rounded"/>
+                <label for="dotStyle2">Rounded</label>
+                <input id="dotStyle3" type="radio" name="dotStyle" value="circle"/>
+                <label for="dotStyle3">Circle</label>
+            </p>
+            <label for="snakecolor" style="color: #3da5f5; font-size: 20px;">Choose a color for your snake:</label>
             <select name="snakecolor" id="snakecolor">
                 <option value="#000000">Black</option>
                 <option value="#ffffff">White</option>
@@ -168,6 +214,7 @@ courses: { compsci: {week: 3} }
         const ele_score = document.getElementById("score_value");
         const speed_setting = document.getElementsByName("speed");
         const wall_setting = document.getElementsByName("wall");
+        const style_setting = document.getElementsByName("style");
         const snakeColorSelect = document.getElementById('snakecolor');
         // HTML Screen IDs (div)
         const SCREEN_MENU = -1, SCREEN_GAME_OVER=1, SCREEN_SETTING=2;
@@ -190,6 +237,13 @@ courses: { compsci: {week: 3} }
         let food = {x: 0, y: 0};
         let score;
         let wall;
+        let snake_style = "fill";
+        let dotStyle = "square";
+        for (let i = 1; i <= 3; i++) {
+            document.getElementById('dotStyle' + i).addEventListener("click", function () {
+                dotStyle = this.value;
+            });
+        }
         let selectedColor = '#000000';
         /* Display Control */
         /////////////////////////////////////////////////////////////
@@ -247,6 +301,16 @@ courses: { compsci: {week: 3} }
                     for(let i = 0; i < wall_setting.length; i++){
                         if(wall_setting[i].checked){
                             setWall(wall_setting[i].value);
+                        }
+                    }
+                });
+            }
+
+            for (let i = 0; i < style_setting.length; i++) {
+                style_setting[i].addEventListener("click", function () {
+                    for (let i = 0; i < style_setting.length; i++) {
+                        if (style_setting[i].checked) {
+                            snake_style = style_setting[i].value;
                         }
                     }
                 });
@@ -377,16 +441,39 @@ courses: { compsci: {week: 3} }
         }
         /* Dot for Food or Snake part */
         /////////////////////////////////////////////////////////////
-        let activeDot = function(x, y){
+        let activeDot = function (x, y) {
             ctx.lineJoin = "round";
             ctx.lineCap = "round";
 
-            // ctx.fillStyle = selectedColor; // Set the fillStyle to change the snake color
-            //ctx.fillRect(x * BLOCK, y * BLOCK, BLOCK, BLOCK); // Use fillRect for solid shapes
-
-            ctx.strokeStyle = selectedColor;
-            ctx.strokeRect(x * BLOCK, y * BLOCK, BLOCK, BLOCK);
+            if (snake_style === "fill") {
+                ctx.fillStyle = selectedColor;
+                if (dotStyle === "circle") {
+                    ctx.beginPath();
+                    ctx.arc(x * BLOCK + BLOCK / 2, y * BLOCK + BLOCK / 2, BLOCK / 2, 0, 2 * Math.PI);
+                    ctx.fill();
+                } else if (dotStyle === "rounded") {
+                    ctx.lineJoin = "round";
+                    ctx.lineCap = "round";
+                    ctx.fillRect(x * BLOCK, y * BLOCK, BLOCK, BLOCK);
+                } else {
+                    ctx.fillRect(x * BLOCK, y * BLOCK, BLOCK, BLOCK);
+                }
+            } else if (snake_style === "stroke") {
+                ctx.strokeStyle = selectedColor;
+                if (dotStyle === "circle") {
+                    ctx.beginPath();
+                    ctx.arc(x * BLOCK + BLOCK / 2, y * BLOCK + BLOCK / 2, BLOCK / 2, 0, 2 * Math.PI);
+                    ctx.stroke();
+                } else if (dotStyle === "rounded") {
+                    ctx.lineJoin = "round";
+                    ctx.lineCap = "round";
+                    ctx.strokeRect(x * BLOCK, y * BLOCK, BLOCK, BLOCK);
+                } else {
+                    ctx.strokeRect(x * BLOCK, y * BLOCK, BLOCK, BLOCK);
+                }
+            }
         }
+
         /* Random food placement */
         /////////////////////////////////////////////////////////////
         let addFood = function(){
