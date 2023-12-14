@@ -4,7 +4,7 @@ comments: false
 layout: post
 title: Snake!
 description: Using JavaScript, HTML, and CSS to create various aspects of the classic Snake game.
-type: hacks
+type: tangibles
 courses: { compsci: {week: 3} }
 ---
 
@@ -70,6 +70,22 @@ courses: { compsci: {week: 3} }
         background-color: #FFF;
         color: #000;
     }
+    p {
+    background: linear-gradient( 
+      to right, #ffffff, #ffffff); 
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text; 
+    }
+
+    .highlight-text {
+        background-color: rgba(27, 15, 64, 0.4); /* Adjust the color and opacity */
+        color: #fff; /* Text color */
+        padding: 1px 4px;
+        border-radius: 3px;
+        /* text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);  Text shadow for visibility */
+    }
+
+
 </style>
 
 
@@ -80,13 +96,13 @@ courses: { compsci: {week: 3} }
     <div class="container bg-secondary" style="text-align:center;">
         <!-- Main Menu -->
         <div id="menu" class="py-4 text-light">
-            <p>Welcome to Snake, press <span style="background-color: #FFFFFF; color: #000000">space</span> to begin</p>
+            <p>Welcome to Snake, press <span id="space-highlight" class="highlight-text">space</span> to begin</p>
             <a id="new_game" class="link-alert">new game</a>
             <a id="setting_menu" class="link-alert">settings</a>
         </div>
         <!-- Game Over -->
         <div id="gameover" class="py-4 text-light">
-            <p>Game Over, press <span style="background-color: #FFFFFF; color: #000000">space</span> to try again</p>
+            <p>Game Over, press <span id="space-highlight" class="highlight-text">space</span> to try again</p>
             <a id="new_game1" class="link-alert">new game</a>
             <a id="setting_menu1" class="link-alert">settings</a>
         </div>
@@ -94,7 +110,7 @@ courses: { compsci: {week: 3} }
         <canvas id="snake" class="wrap" width="220" height="220" tabindex="1"></canvas>
         <!-- Settings Screen -->
         <div id="setting" class="py-4 text-light">
-            <p>Settings Screen, press <span style="background-color: #FFFFFF; color: #000000">space</span> to go back to playing</p>
+            <p>Settings Screen, press <span id="space-highlight" class="highlight-text">space</span> to go back to playing</p>
             <a id="new_game2" class="link-alert">new game</a>
             <br>
             <p>Speed:
@@ -111,6 +127,18 @@ courses: { compsci: {week: 3} }
                 <input id="walloff" type="radio" name="wall" value="0"/>
                 <label for="walloff">Off</label>
             </p>
+            <label for="snakecolor">Choose a color for your snake:</label>
+            <select name="snakecolor" id="snakecolor">
+                <option value="#000000">Black</option>
+                <option value="#ffffff">White</option>
+                <option value="#f24e00">Red</option>
+                <option value="#fc9803">Orange</option>
+                <option value="#fcf003">Yellow</option>
+                <option value="#03fc5a">Green</option>
+                <option value="#180261">Blue</option>
+                <option value="#4169e1">Invisible</option>
+            </select>
+            <!-- 
             <p>Board Size:
                 <input id="boardsizesmall" type="radio" name="speed" value="320" checked/>
                 <label for="boardsizesmall">Slow</label>
@@ -119,11 +147,15 @@ courses: { compsci: {week: 3} }
                 <input id="boardsizelarge" type="radio" name="speed" value="35"/>
                 <label for="boadsizelarge">Fast</label>
             </p>
+            -->
         </div>
     </div>
 </div>
 
 <script>
+    //disable arrow key scrolling
+    window.addEventListener("keydown", function(e) { if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) { e.preventDefault(); } }, false);
+    
     (function(){
         /* Attributes of Game */
         /////////////////////////////////////////////////////////////
@@ -136,6 +168,7 @@ courses: { compsci: {week: 3} }
         const ele_score = document.getElementById("score_value");
         const speed_setting = document.getElementsByName("speed");
         const wall_setting = document.getElementsByName("wall");
+        const snakeColorSelect = document.getElementById('snakecolor');
         // HTML Screen IDs (div)
         const SCREEN_MENU = -1, SCREEN_GAME_OVER=1, SCREEN_SETTING=2;
         const screen_menu = document.getElementById("menu");
@@ -157,6 +190,7 @@ courses: { compsci: {week: 3} }
         let food = {x: 0, y: 0};
         let score;
         let wall;
+        let selectedColor = '#000000';
         /* Display Control */
         /////////////////////////////////////////////////////////////
         // 0 for the game
@@ -217,6 +251,10 @@ courses: { compsci: {week: 3} }
                     }
                 });
             }
+
+            snakeColorSelect.addEventListener('change', function() {
+                selectedColor = snakeColorSelect.value;
+            });
             // activate window events
             window.addEventListener("keydown", function(evt) {
                 // spacebar detected
@@ -342,7 +380,11 @@ courses: { compsci: {week: 3} }
         let activeDot = function(x, y){
             ctx.lineJoin = "round";
             ctx.lineCap = "round";
-            ctx.strokeStyle = "#FFFFFF";
+
+            // ctx.fillStyle = selectedColor; // Set the fillStyle to change the snake color
+            //ctx.fillRect(x * BLOCK, y * BLOCK, BLOCK, BLOCK); // Use fillRect for solid shapes
+
+            ctx.strokeStyle = selectedColor;
             ctx.strokeRect(x * BLOCK, y * BLOCK, BLOCK, BLOCK);
         }
         /* Random food placement */
