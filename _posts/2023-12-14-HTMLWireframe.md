@@ -11,7 +11,7 @@ courses: { compsci: {week: 3} }
 
 <div>
     <p> This is a paragraph. It is made by a p tag.
-        <button>If you click this nothing will happen! This button is made by a button tag</button>
+        <button style="background-color: #1A6CC8 !important;" >If you click this nothing will happen! This button is made by a button tag</button>
     </p>
 </div>
 <div>
