@@ -147,7 +147,7 @@ courses: { compsci: {week: 4} }
               result = first * (second + 100) / 100 
               break;
           case "00":
-              result = first * 100
+              result = first + "00"
               break;
           default: 
               break;
@@ -183,7 +183,7 @@ courses: { compsci: {week: 4} }
       nextReady = true;
   }
 
-/*
+
   function showPopup() {
     let userInput = parseInt(prompt("Enter a tip for me (not for your calculator)! 20% or more!"));
     if (!isNaN(userInput) && userInput >= 20) {
@@ -197,8 +197,6 @@ courses: { compsci: {week: 4} }
     }
   }
 
-
-  // Operation buttons listener
   operations.forEach(button => {
     button.addEventListener("click", function () {
       if (button.textContent === "TIP") {
@@ -208,7 +206,7 @@ courses: { compsci: {week: 4} }
       }
     });
   });
-*/
+
 </script>
 
 <!-- 
